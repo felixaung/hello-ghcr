@@ -10,5 +10,5 @@ jobs:
       - name: Build and Push Docker image to GHCR
         run: |
           docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GH_PAT }}
-          docker build -t . ghcr.io/${{github.actor}}/hello-ghcr:latest
+          docker build . -t ghcr.io/${{github.actor}}/hello-ghcr:latest
           docker push ghcr.io/${{github.actor}}/hello-ghcr:latest
