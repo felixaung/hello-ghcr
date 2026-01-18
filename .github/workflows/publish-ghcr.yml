@@ -1,15 +1,14 @@
 name: Docker Image CI for GHCR
 
-on:
-  push
+on: push
 
 jobs:
   build-and-push:
-   runs-on: ubuntu-latest
-   steps: 
-    - uses: action/checkout@3
-    - name: Build and Push Docker image to GHCR
-      run: |
-        docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GH_PAT }}
-        docker build -t . ghcr.io/${{github.actor}}/hello-ghcr:latest
-        docker push ghcr.io/${{github.actor}}/hello-ghcr:latest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build and Push Docker image to GHCR
+        run: |
+          docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GH_PAT }}
+          docker build -t . ghcr.io/${{github.actor}}/hello-ghcr:latest
+          docker push ghcr.io/${{github.actor}}/hello-ghcr:latest
