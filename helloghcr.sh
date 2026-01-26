@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo "Hello ghcr!"
+echo "Hello ghcr again!"
